@@ -4,6 +4,8 @@ const inviaElement = document.querySelector('#invia');
 const userdateElement = document.querySelector('#userdate')
 
 inviaElement.addEventListener('click', function(){
+
+    var valuedate = userdateElement.value;
     
     // selezionare la data 
     var countDownDate = new Date("12 feb, 2024 9:30:00").getTime();
@@ -27,6 +29,11 @@ inviaElement.addEventListener('click', function(){
     document.getElementById("demo").innerHTML = days + "d " + hours + "h "
     + minutes + "m " + seconds + "s ";
 
+    // quando il countdown finsce, scrivi in pagina
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "IL TEMPO E' SCADUTO";
+    }
     }, 1000);
     
 })
